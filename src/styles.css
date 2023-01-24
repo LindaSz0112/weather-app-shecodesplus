@@ -1,0 +1,98 @@
+body {
+  margin-top: 30px;
+}
+
+.border {
+  background-image: url("../images/winter_dark.jpg");
+  background-position: center center;
+  background-size: cover;
+  max-width: 600px;
+  max-height: 600px;
+  border: 1px solid;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto;
+}
+
+form {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+input {
+  border-radius: 5px;
+}
+button {
+  font-family: "Josefin Sans", sans-serif;
+  border: 0;
+  border-radius: 5px;
+  background-color: aliceblue;
+  box-shadow: 2px 2px 5px grey;
+  transition: all 200ms ease-in-out;
+}
+button:hover {
+  color: aliceblue;
+  background-color: #273e46;
+}
+.city-details {
+  padding-bottom: 30px;
+}
+
+h1 {
+  font-size: 55px;
+  font-family: "Josefin Sans", sans-serif;
+  color: aliceblue;
+  text-shadow: 5px 5px 5px black;
+}
+
+span {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 20px;
+  color: aliceblue;
+  text-shadow: 5px 5px 5px black;
+}
+h2 {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 50px;
+  text-align: center;
+  padding: 15px;
+  color: aliceblue;
+  text-shadow: 5px 5px 5px black;
+}
+.temperature {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 50px;
+  color: aliceblue;
+  text-shadow: 5px 5px 5px black;
+}
+ul {
+  font-family: "Josefin Sans", sans-serif;
+  list-style: none;
+  padding: 0px;
+  padding-bottom: 5px;
+  font-size: 22px;
+  color: aliceblue;
+  text-shadow: 5px 5px 5px black;
+}
+.main-symbol {
+  text-align: center;
+  font-size: 80px;
+
+  text-shadow: 5px 5px 5px black;
+}
+.extra-details {
+  font-weight: bolder;
+}
+.upcoming-days {
+  text-align: center;
+  padding-top: 30px;
+  font-family: "Josefin Sans", sans-serif;
+  padding-bottom: 30px;
+  color: aliceblue;
+  text-shadow: 5px 5px 5px black;
+}
+
+.weather-symbol {
+  font-size: 35px;
+
+  text-shadow: 5px 5px 5px black;
+}
