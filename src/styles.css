@@ -6,8 +6,8 @@ body {
   background-image: url("../images/winter_dark.jpg");
   background-position: center center;
   background-size: cover;
-  max-width: 600px;
-  max-height: 600px;
+  max-width: 630px;
+  max-height: 630px;
   border: 1px solid;
   border-radius: 8px;
   display: block;
@@ -95,4 +95,7 @@ ul {
   font-size: 35px;
 
   text-shadow: 5px 5px 5px black;
+}
+.author {
+  color: white;
 }
