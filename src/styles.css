@@ -97,5 +97,17 @@ ul {
   text-shadow: 5px 5px 5px black;
 }
 .author {
-  color: white;
+  color: aliceblue;
+  font-family: "Josefin Sans", sans-serif;
+  padding: 5px 10px;
+}
+
+.github-link {
+  color: aliceblue;
+  text-decoration: none;
+  transition: all 200ms ease-in-out;
+}
+
+.github-link:hover {
+  color: #00a6ed;
 }
