@@ -6,8 +6,8 @@ body {
   background-image: url("../images/winter_dark.jpg");
   background-position: center center;
   background-size: cover;
-  max-width: 630px;
-  max-height: 630px;
+  max-width: 600px;
+  max-height: 600px;
   border: 1px solid;
   border-radius: 8px;
   display: block;
