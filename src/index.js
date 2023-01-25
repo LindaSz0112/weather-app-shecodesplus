@@ -37,5 +37,14 @@ function showTemperature(response) {
   );
 }
 
+function myLocation(position) {
+  console.log(position.coords);
+}
+
 let weather = document.querySelector("#go-button");
 weather.addEventListener("click", showCity);
+
+/*let currentLocationButton = document.querySelector("#current-location-button");
+currentLocationButton.addEventListener("click")*/
+
+navigator.geolocation.getCurrentPosition(myLocation);
