@@ -16,33 +16,56 @@ if (currentMinutes < 10) {
 todayDate.innerHTML = `${currentDay}.${currentMonth}.${currentYear}.`;
 nowTime.innerHTML = `${currentHour}:${currentMinutes}`;
 
-function searchCity(city) {
+function cityWeather(city) {
+  let apiKey = "04bde8cc7f569f7c5603cdbc6deb89a3";
+
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+  axios.get(apiUrl).then(showWeatherDeatails);
+}
+
+function showCity(event) {
+  event.preventDefault();
+  let city = document.querySelector("#city-input").value;
+  cityWeather(city);
+}
+
+function showWeatherDeatails(response) {
+  document.querySelector("h1").innerHTML = response.data.name;
+  document.querySelector("#temp-value").innerHTML = Math.round(
+    response.data.main.temp
+  );
+  document.querySelector("#wind").innerHTML = `${Math.round(
+    response.data.wind.speed
+  )} km/h`;
+}
+
+/*function searchCity(city) {
   let apiKey = "04bde8cc7f569f7c5603cdbc6deb89a3";
 
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
   axios.get(apiUrl).then(showTemperature);
-}
+}*/
 
-function showCity(event) {
+/*function showCity(event) {
   event.preventDefault();
   let citySearchField = document.querySelector("#city-input");
   let cityName = document.querySelector("h1");
   cityName.innerHTML = citySearchField.value;
   searchCity(citySearchField.value);
-}
+}*/
 
-function showTemperature(response) {
+/*function showTemperature(response) {
   document.querySelector("#temp-value").innerHTML = Math.round(
     response.data.main.temp
   );
-}
+}*/
 
 function myLocation(position) {
   console.log(position.coords);
 }
 
-let weather = document.querySelector("#go-button");
-weather.addEventListener("click", showCity);
+let enterCity = document.querySelector("#city-search");
+enterCity.addEventListener("click", showCity);
 
 /*let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click")*/
