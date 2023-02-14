@@ -36,78 +36,74 @@
     <link rel="stylesheet" href="src/styles.css" />
   </head>
   <body>
-    <div class="border">
-      <div class="container">
-        <form id="city-search">
-          <input type="text" placeholder="Search City" id="city-input" />
-          <button id="go-button">Go!</button>
-          <button id="current-location-button">Current Location</button>
-        </form>
-        <div class="upper-part row">
-          <div class="city-details col">
-            <h1>Prague</h1>
-            <span id="current-date">12.16.2022.</span><br /><span
-              id="current-time"
-              >16:24</span
-            >
-          </div>
-          <div class="temperature col">
-            <h2>
-              <span class="temperature" id="temp-value"> - 2 </span
-              ><span class="temperature" id="celsius">°C</span>|<span
-                class="temperature"
-                id="fahrenheit"
-                >°F</span
-              >
-            </h2>
-          </div>
-        </div>
-        <div class="bottom-part row">
-          <section class="weather-details col">
-            <ul>
-              <li>
-                <span class="extra-details">Wind:</span>
-                <span id="wind">13 km/h</span>
-              </li>
-              <li>
-                <span class="extra-details">Humidity: </span
-                ><span id="humidity">35%</span>
-              </li>
-              <li>
-                <span class="extra-details">Max / Min:</span> -2 °C / -6 °C
-              </li>
-            </ul>
-          </section>
-          <div class="main-symbol col">🌨️</div>
-        </div>
-        <div class="upcoming-days row">
-          <div class="first col">
-            <span class="weather-symbol">🌥️</span><br />-3 / -11<br />Saturday
-          </div>
-          <div class="second col">
-            <span class="weather-symbol">❄️</span><br />-5 / -12<br />Sunday
-          </div>
-          <div class="third col">
-            <span class="weather-symbol">☁️</span><br />-2 / -7<br />Monday
-          </div>
-          <div class="forth col">
-            <span class="weather-symbol"> 🌤️ </span><br />
-            -1 / -5<br />Tuesday
-          </div>
-          <dic class="fifth col"
-            ><span class="weather-symbol">🌥️</span> <br />-1 / 2<br />Wednesday</dic
+    <div class="container">
+      <form id="city-search">
+        <input type="text" placeholder="Search City" id="city-input" />
+        <button id="go-button">Go!</button>
+        <button id="current-location-button">Current Location</button>
+      </form>
+      <div class="upper-part row">
+        <div class="city-details col">
+          <h1>Prague</h1>
+          <span id="current-date">12.16.2022.</span><br /><span
+            id="current-time"
+            >16:24</span
           >
         </div>
+        <div class="temperature col">
+          <h2>
+            <span class="temperature" id="temp-value"> - 2 </span
+            ><span class="temperature" id="celsius">°C</span>|<span
+              class="temperature"
+              id="fahrenheit"
+              >°F</span
+            >
+          </h2>
+        </div>
       </div>
-      <div class="author">
-        <a
-          href="https://github.com/LindaSz0112/weather-app-shecodesplus"
-          target="_blank"
-          class="github-link"
-          >Open-source code</a
+      <div class="bottom-part row">
+        <section class="weather-details col">
+          <ul>
+            <li>
+              <span class="extra-details">Wind:</span>
+              <span id="wind">13 km/h</span>
+            </li>
+            <li>
+              <span class="extra-details">Humidity: </span
+              ><span id="humidity">35%</span>
+            </li>
+            <li><span class="extra-details">Max / Min:</span> -2 °C / -6 °C</li>
+          </ul>
+        </section>
+        <div class="main-symbol col">🌨️</div>
+      </div>
+      <div class="upcoming-days row">
+        <div class="first col">
+          <span class="weather-symbol">🌥️</span><br />-3 / -11<br />Saturday
+        </div>
+        <div class="second col">
+          <span class="weather-symbol">❄️</span><br />-5 / -12<br />Sunday
+        </div>
+        <div class="third col">
+          <span class="weather-symbol">☁️</span><br />-2 / -7<br />Monday
+        </div>
+        <div class="forth col">
+          <span class="weather-symbol"> 🌤️ </span><br />
+          -1 / -5<br />Tuesday
+        </div>
+        <dic class="fifth col"
+          ><span class="weather-symbol">🌥️</span> <br />-1 / 2<br />Wednesday</dic
         >
-        by Linda Szarvas
       </div>
+    </div>
+    <div class="author">
+      <a
+        href="https://github.com/LindaSz0112/weather-app-shecodesplus"
+        target="_blank"
+        class="github-link"
+        >Open-source code</a
+      >
+      by Linda Szarvas
     </div>
     <script src="src/index.js" defer></script>
   </body>

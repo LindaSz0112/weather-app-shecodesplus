@@ -2,7 +2,7 @@ body {
   margin-top: 30px;
 }
 
-.border {
+.container {
   background-image: url("../images/winter_dark.jpg");
   background-position: center center;
   background-size: cover;
