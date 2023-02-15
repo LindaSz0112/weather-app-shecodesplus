@@ -16,7 +16,20 @@ if (currentMinutes < 10) {
 todayDate.innerHTML = `${currentDay}.${currentMonth}.${currentYear}.`;
 nowTime.innerHTML = `${currentHour}:${currentMinutes}`;
 
-function cityWeather(city) {
+function weatherInformation(response) {
+  let temperatureValue = document.querySelector("#temp-value");
+  temperatureValue.innerHTML = Math.round(response.data.main.temp);
+  let cityName = document.querySelector("#city");
+  cityName.innerHTML = response.data.name;
+}
+
+let apiKey = "04bde8cc7f569f7c5603cdbc6deb89a3";
+
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=prague&units=metric&appid=${apiKey}&units=metric`;
+console.log(apiUrl);
+axios.get(apiUrl).then(weatherInformation);
+
+/*function cityWeather(city) {
   let apiKey = "04bde8cc7f569f7c5603cdbc6deb89a3";
 
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
@@ -52,4 +65,4 @@ enterCity.addEventListener("click", showCity);
 /*let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click")*/
 
-navigator.geolocation.getCurrentPosition(myLocation);
+/*navigator.geolocation.getCurrentPosition(myLocation);*/
