@@ -21,6 +21,18 @@ function weatherInformation(response) {
   temperatureValue.innerHTML = Math.round(response.data.main.temp);
   let cityName = document.querySelector("#city");
   cityName.innerHTML = response.data.name;
+  document.querySelector("#wind").innerHTML = `${Math.round(
+    response.data.wind.speed
+  )} km/h`;
+  document.querySelector(
+    "#humidity"
+  ).innerHTML = `${response.data.main.humidity}%`;
+  document.querySelector("#temp-max").innerHTML = Math.round(
+    response.data.main.temp_max
+  );
+  document.querySelector("#temp-min").innerHTML = Math.round(
+    response.data.main.temp_min
+  );
 }
 
 let apiKey = "04bde8cc7f569f7c5603cdbc6deb89a3";
