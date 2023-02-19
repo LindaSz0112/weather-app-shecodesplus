@@ -91,9 +91,9 @@ ul {
   text-shadow: 5px 5px 5px black;
 }
 .main-symbol {
-  text-align: center;
-  font-size: 80px;
-
+  display: block;
+  margin: 0 auto;
+  font-size: 100px;
   text-shadow: 5px 5px 5px black;
 }
 .extra-details {
@@ -109,6 +109,7 @@ ul {
 }
 
 .weather-symbol {
+  text-align: center;
   font-size: 35px;
 
   text-shadow: 5px 5px 5px black;
