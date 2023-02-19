@@ -33,6 +33,8 @@ function weatherInformation(response) {
   document.querySelector("#temp-min").innerHTML = Math.round(
     response.data.main.temp_min
   );
+  let description = document.querySelector("#short-description");
+  description.innerHTML = response.data.weather[0].description;
 }
 
 let apiKey = "04bde8cc7f569f7c5603cdbc6deb89a3";
