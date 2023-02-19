@@ -1,3 +1,6 @@
+@import "src/weather-icons.min.css";
+@import "src/fonts";
+
 body {
   margin-top: 50px;
 }
