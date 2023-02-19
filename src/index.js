@@ -16,27 +16,6 @@ if (currentMinutes < 10) {
 todayDate.innerHTML = `${currentDay}.${currentMonth}.${currentYear}.`;
 nowTime.innerHTML = `${currentHour}:${currentMinutes}`;
 
-/*function weatherInformation(response) {
-  let temperatureValue = document.querySelector("#temp-value");
-  temperatureValue.innerHTML = Math.round(response.data.main.temp);
-  let cityName = document.querySelector("#city");
-  cityName.innerHTML = response.data.name;
-  document.querySelector("#wind").innerHTML = `${Math.round(
-    response.data.wind.speed
-  )} km/h`;
-  document.querySelector(
-    "#humidity"
-  ).innerHTML = `${response.data.main.humidity}%`;
-  document.querySelector("#temp-max").innerHTML = Math.round(
-    response.data.main.temp_max
-  );
-  document.querySelector("#temp-min").innerHTML = Math.round(
-    response.data.main.temp_min
-  );
-  let description = document.querySelector("#short-description");
-  description.innerHTML = response.data.weather[0].description;
-}*/
-
 function cityWeather(city) {
   let apiKey = "04bde8cc7f569f7c5603cdbc6deb89a3";
 
@@ -52,9 +31,8 @@ function showCity(event) {
 
 function showWeatherDeatails(response) {
   document.querySelector("h1").innerHTML = response.data.name;
-  document.querySelector("#temp-value").innerHTML = Math.round(
-    response.data.main.temp
-  );
+  celsiusElement = response.data.main.temp;
+  document.querySelector("#temp-value").innerHTML = Math.round(celsiusElement);
   document.querySelector("#wind").innerHTML = `${Math.round(
     response.data.wind.speed
   )} km/h`;
@@ -71,51 +49,29 @@ function showWeatherDeatails(response) {
   description.innerHTML = response.data.weather[0].description;
 }
 
-let enterCity = document.querySelector("#city-search");
-enterCity.addEventListener("click", showCity);
-
-/*let apiKey = "04bde8cc7f569f7c5603cdbc6deb89a3";
-
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=prague&units=metric&appid=${apiKey}&units=metric`;
-console.log(apiUrl);*/
-
-/*axios.get(apiUrl).then(weatherInformation);*/
-cityWeather("Prague");
-
-/*function cityWeather(city) {
-  let apiKey = "04bde8cc7f569f7c5603cdbc6deb89a3";
-
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
-  axios.get(apiUrl).then(showWeatherDeatails);
-}
-
-function showCity(event) {
+function displayFahrenheit(event) {
   event.preventDefault();
-  let city = document.querySelector("#city-input").value;
-  cityWeather(city);
+
+  let mainTemperature = document.querySelector("#temp-value");
+  let fahrenheitElement = (celsiusElement * 9) / 5 + 32;
+  mainTemperature.innerHTML = Math.round(fahrenheitElement);
 }
 
-function showWeatherDeatails(response) {
-  document.querySelector("h1").innerHTML = response.data.name;
-  document.querySelector("#temp-value").innerHTML = Math.round(
-    response.data.main.temp
-  );
-  document.querySelector("#wind").innerHTML = `${Math.round(
-    response.data.wind.speed
-  )} km/h`;
-  document.querySelector(
-    "#humidity"
-  ).innerHTML = `${response.data.main.humidity}%`;
-}
-
-function myLocation(position) {
-  console.log(position.coords);
+function displayCelsius(event) {
+  event.preventDefault();
+  let mainTemperature = document.querySelector("#temp-value");
+  mainTemperature.innerHTML = Math.round(celsiusElement);
 }
 
 let enterCity = document.querySelector("#city-search");
 enterCity.addEventListener("click", showCity);
 
-/*let currentLocationButton = document.querySelector("#current-location-button");
-currentLocationButton.addEventListener("click")*/
+let celsiusElement = null;
 
-/*navigator.geolocation.getCurrentPosition(myLocation);*/
+let temperatureFahrenheit = document.querySelector("#fahrenheit");
+temperatureFahrenheit.addEventListener("click", displayFahrenheit);
+
+let temperatureCelsius = document.querySelector("#celsius");
+temperatureCelsius.addEventListener("click", displayCelsius);
+
+cityWeather("Prague");
