@@ -77,10 +77,10 @@ function showForecast() {
 
   let forecastHTML = `<div class="row">`;
   days.forEach(function (day) {
-    forecastElement =
-      forecastElement +
+    forecastHTML =
+      forecastHTML +
       `
-        <div class="col-2">
+        <div class="col">
           <span class="weather-symbol">🌥️</span><br /><span
             class="forecast-min-temp"
             >-3 </span
