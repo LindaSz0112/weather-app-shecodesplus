@@ -70,6 +70,27 @@ function displayCelsius(event) {
   mainTemperature.innerHTML = Math.round(celsiusElement);
 }
 
+function showForecast() {
+  let forecastElement = document.querySelector("#upcoming-forecast");
+
+  let days = ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday"];
+
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastElement =
+      forecastElement +
+      `
+        <div class="col-2">
+          <span class="weather-symbol">🌥️</span><br /><span
+            class="forecast-min-temp"
+            >-3 </span
+          >/ <span class="forecast-max-temp">-11 </span><br />${day}
+        </div>`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 let enterCity = document.querySelector("#city-search");
 enterCity.addEventListener("click", showCity);
 
@@ -81,4 +102,5 @@ temperatureFahrenheit.addEventListener("click", displayFahrenheit);
 let temperatureCelsius = document.querySelector("#celsius");
 temperatureCelsius.addEventListener("click", displayCelsius);
 
+showForecast();
 cityWeather("Prague");
