@@ -61,15 +61,11 @@ h2 {
 .temperature {
   font-size: 90px;
 }
-.temp-c-f {
+.temp-c {
   position: relative;
   font-size: 25px;
   top: -30px;
   transition: all 200ms ease-in-out;
-}
-
-.temp-c-f:hover {
-  color: #00a6ed;
 }
 
 .description {

@@ -59,20 +59,6 @@ function showWeatherDeatails(response) {
   forecastCoordinates(response.data);
 }
 
-function displayFahrenheit(event) {
-  event.preventDefault();
-
-  let mainTemperature = document.querySelector("#temp-value");
-  let fahrenheitElement = (celsiusElement * 9) / 5 + 32;
-  mainTemperature.innerHTML = Math.round(fahrenheitElement);
-}
-
-function displayCelsius(event) {
-  event.preventDefault();
-  let mainTemperature = document.querySelector("#temp-value");
-  mainTemperature.innerHTML = Math.round(celsiusElement);
-}
-
 function forecastCoordinates(response) {
   let apiKey = "t8c4bc88f33a8fff2c5o00a1f6b0d692";
 
@@ -106,13 +92,5 @@ function showForecast(response) {
 
 let enterCity = document.querySelector("#city-search");
 enterCity.addEventListener("click", showCity);
-
-let celsiusElement = null;
-
-let temperatureFahrenheit = document.querySelector("#fahrenheit");
-temperatureFahrenheit.addEventListener("click", displayFahrenheit);
-
-let temperatureCelsius = document.querySelector("#celsius");
-temperatureCelsius.addEventListener("click", displayCelsius);
 
 cityWeather("Prague");
