@@ -21,6 +21,7 @@ function cityWeather(city) {
 
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
   axios.get(apiUrl).then(showWeatherDeatails);
+  console.log(apiUrl);
 }
 
 function showCity(event) {
@@ -54,6 +55,8 @@ function showWeatherDeatails(response) {
   );
   let description = document.querySelector("#short-description");
   description.innerHTML = response.data.weather[0].description;
+
+  forecastCoordinates(response.data);
 }
 
 function displayFahrenheit(event) {
@@ -70,7 +73,17 @@ function displayCelsius(event) {
   mainTemperature.innerHTML = Math.round(celsiusElement);
 }
 
-function showForecast() {
+function forecastCoordinates(response) {
+  let apiKey = "t8c4bc88f33a8fff2c5o00a1f6b0d692";
+
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${response.name}&key=${apiKey}`;
+  axios.get(apiUrl).then(showForecast);
+
+  console.log(apiUrl);
+}
+
+function showForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#upcoming-forecast");
 
   let days = ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday"];
@@ -102,5 +115,4 @@ temperatureFahrenheit.addEventListener("click", displayFahrenheit);
 let temperatureCelsius = document.querySelector("#celsius");
 temperatureCelsius.addEventListener("click", displayCelsius);
 
-showForecast();
 cityWeather("Prague");
