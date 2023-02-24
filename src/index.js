@@ -17,10 +17,10 @@ todayDate.innerHTML = `${currentDay}.${currentMonth}.${currentYear}.`;
 nowTime.innerHTML = `${currentHour}:${currentMinutes}`;
 
 function cityWeather(city) {
-  let apiKey = "04bde8cc7f569f7c5603cdbc6deb89a3";
+  let apiKey = "t8c4bc88f33a8fff2c5o00a1f6b0d692";
 
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
-  axios.get(apiUrl).then(showWeatherDeatails);
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
+  axios.get(apiUrl).then(showWeatherDetails);
   console.log(apiUrl);
 }
 
@@ -30,9 +30,10 @@ function showCity(event) {
   cityWeather(city);
 }
 
-function showWeatherDeatails(response) {
-  document.querySelector("h1").innerHTML = response.data.name;
-  celsiusElement = response.data.main.temp;
+function showWeatherDetails(response) {
+  document.querySelector("h1").innerHTML = response.data.city;
+  celsiusElement = response.data.temperature.current;
+  console.log(celsiusElement);
   document.querySelector("#temp-value").innerHTML = Math.round(celsiusElement);
   document.querySelector("#wind").innerHTML = `${Math.round(
     response.data.wind.speed
@@ -40,21 +41,19 @@ function showWeatherDeatails(response) {
   let iconElement = document.querySelector("#weather-icon");
   iconElement.setAttribute(
     "src",
-    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
   );
-  iconElement.setAttribute("alt", response.data.weather[0].description);
+  iconElement.setAttribute("alt", response.data.condition.description);
 
   document.querySelector(
     "#humidity"
-  ).innerHTML = `${response.data.main.humidity}%`;
-  document.querySelector("#temp-max").innerHTML = Math.round(
-    response.data.main.temp_max
-  );
-  document.querySelector("#temp-min").innerHTML = Math.round(
-    response.data.main.temp_min
+  ).innerHTML = `${response.data.temperature.humidity}%`;
+
+  document.querySelector("#feels-like").innerHTML = Math.round(
+    response.data.temperature.feels_like
   );
   let description = document.querySelector("#short-description");
-  description.innerHTML = response.data.weather[0].description;
+  description.innerHTML = response.data.condition.description;
 
   forecastCoordinates(response.data);
 }
@@ -89,6 +88,8 @@ function showForecast(response) {
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
+
+let celsiusElement = null;
 
 let enterCity = document.querySelector("#city-search");
 enterCity.addEventListener("click", showCity);
