@@ -11,9 +11,9 @@ body {
   border-radius: 8px;
   display: block;
   margin: 0 auto;
-  max-width: 450px;
+  max-width: 550px;
   max-height: 700px;
-  padding: 30px;
+  padding: 30px 30px 30px 45px;
 }
 
 form {
@@ -40,7 +40,7 @@ button:hover {
 }
 
 h1 {
-  font-size: 50px;
+  font-size: 40px;
   font-family: "Josefin Sans", sans-serif;
   color: aliceblue;
   text-shadow: 5px 5px 5px black;
@@ -89,7 +89,8 @@ ul {
 .main-symbol {
   display: block;
   margin: 0 auto;
-  max-width: 120%;
+
+  max-width: 12;
   text-shadow: 5px 5px 5px black;
 }
 .extra-details {
