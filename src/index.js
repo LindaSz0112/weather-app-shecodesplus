@@ -1,20 +1,22 @@
-let now = new Date();
-let months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-let todayDate = document.querySelector("#current-date");
-let nowTime = document.querySelector("#current-time");
-let currentDay = now.getDate();
-let currentMonth = months[now.getMonth()];
-let currentYear = now.getFullYear();
-let currentHour = now.getHours();
-if (currentHour < 10) {
-  currentHour = `0${currentHour}`;
+function currentTime(timestamp) {
+  let now = new Date();
+  let months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+  let todayDate = document.querySelector("#current-date");
+  let nowTime = document.querySelector("#current-time");
+  let currentDay = now.getDate();
+  let currentMonth = months[now.getMonth()];
+  let currentYear = now.getFullYear();
+  let currentHour = now.getHours();
+  if (currentHour < 10) {
+    currentHour = `0${currentHour}`;
+  }
+  let currentMinutes = now.getMinutes();
+  if (currentMinutes < 10) {
+    currentMinutes = `0${currentMinutes}`;
+  }
+  todayDate.innerHTML = `${currentDay}.${currentMonth}.${currentYear}.`;
+  nowTime.innerHTML = `Last updated: ${currentHour}:${currentMinutes}`;
 }
-let currentMinutes = now.getMinutes();
-if (currentMinutes < 10) {
-  currentMinutes = `0${currentMinutes}`;
-}
-todayDate.innerHTML = `${currentDay}.${currentMonth}.${currentYear}.`;
-nowTime.innerHTML = `${currentHour}:${currentMinutes}`;
 
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
@@ -28,16 +30,13 @@ function formatDay(timestamp) {
     "Friday",
     "Saturday",
   ];
-
   return days[day];
 }
 
 function cityWeather(city) {
   let apiKey = "t8c4bc88f33a8fff2c5o00a1f6b0d692";
-
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
   axios.get(apiUrl).then(showWeatherDetails);
-  console.log(apiUrl);
 }
 
 function showCity(event) {
@@ -49,7 +48,6 @@ function showCity(event) {
 function showWeatherDetails(response) {
   document.querySelector("h1").innerHTML = response.data.city;
   celsiusElement = response.data.temperature.current;
-  console.log(celsiusElement);
   document.querySelector("#temp-value").innerHTML = Math.round(celsiusElement);
   document.querySelector("#wind").innerHTML = `${Math.round(
     response.data.wind.speed
@@ -68,27 +66,21 @@ function showWeatherDetails(response) {
   document.querySelector("#feels-like").innerHTML = Math.round(
     response.data.temperature.feels_like
   );
-  let description = document.querySelector("#short-description");
-  description.innerHTML = response.data.condition.description;
+  document.querySelector("#short-description").innerHTML =
+    response.data.condition.description;
 
   forecastCoordinates(response);
 }
 
 function forecastCoordinates(response) {
   let apiKey = "t8c4bc88f33a8fff2c5o00a1f6b0d692";
-
   let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${response.data.city}&key=${apiKey}`;
   axios.get(apiUrl).then(showForecast);
-
-  console.log(apiUrl);
 }
 
 function showForecast(response) {
-  console.log(response.data.daily);
   let forecastElement = document.querySelector("#upcoming-forecast");
-
   let forecast = response.data.daily;
-  console.log(forecast);
 
   let forecastHTML = `<div class="row">`;
   forecast.forEach(function (forecastDay, index) {
@@ -115,6 +107,8 @@ function showForecast(response) {
 let celsiusElement = null;
 
 let enterCity = document.querySelector("#city-search");
-enterCity.addEventListener("click", showCity);
+enterCity.addEventListener("submit", showCity);
+
+currentTime();
 
 cityWeather("Prague");
