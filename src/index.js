@@ -97,7 +97,7 @@ function showForecast(response) {
         forecastHTML +
         `
         <div class="col-3">
-          <span class="weather-symbol"><img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
+          <span><img class="weather-symbol" src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
             forecastDay.condition.icon
           }.png" /></span><br /><span
             class="forecast-min-temp"
